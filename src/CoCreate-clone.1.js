@@ -66,70 +66,27 @@ function clickedCloneBtn(btn) {
     
     template.parentNode.insertBefore(clonedItem, template);
     
-    const domEditorEl = CoCreateHtmlTags.findElementByChild(clonedItem);
-    if (domEditorEl) {
-      sendMessageOfClone(domEditorEl, clonedItem, cloneId);
-      CoCreateHtmlTags.saveHtml(domEditorEl);
-    }
-
-    // createSortableForSaveFetch(clonedItem);
-}
-
-function sendMessageOfClone(parent, item, id) {
-  const document_id = parent.getAttribute('data-document_id');
-  const name = parent.getAttribute('name')
-  
-  const message = {
-    selector_type: 'querySelector',
-    selector: `div.domEditor[data-document_id='${document_id}'][name='${name}'] #${id}.template`,
-    method: 'insertAdjacentHTML',
-    value: {
-      'beforebegin': item.outerHTML
-    }
-  }
-  
-  CoCreate.sendMessage({
-    rooms: [],
-    emit: {
-      message: 'domEditor',
-      data: message
-    },
-  })
-  console.log(message);
-}
-
-function sendMessageOfDelete(element_id) {
-  const message = {
-    selector_type: 'getElementById',
-    selector: element_id,
-    method: 'remove',
-  }
-  
-  CoCreate.sendMessage({
-    rooms: [],
-    emit: {
-      message: 'domEditor',
-      data: message
-    }
-  })
-  console.log(message)
-  
+    let saveFetchEl = findSaveFetchElByChild(clonedItem);
+    
+    if (saveFetchEl) saveHtml(saveFetchEl);
+    
+    createSortableForSaveFetch(clonedItem);
 }
 
 function clickedDeleteBtn(btn) {
-
+  console.log(btn);
+  
   let id = btn.getAttribute('data-clone_id');
-
+  console.log(id);
+  
   let item = document.getElementById(id);
-
+  
+  console.log(item);
+  
   if (item) {
-    const domEditorEl = CoCreateHtmlTags.findElementByChild(item);
+    let saveFetchEl = findSaveFetchElByChild(item);  
     item.remove();
-    
-    sendMessageOfDelete(id);
-    if (domEditorEl) {
-      CoCreateHtmlTags.saveHtml(domEditorEl);
-    }
+    if (saveFetchEl) saveHtml(saveFetchEl);
   }
 }
 
@@ -243,7 +200,7 @@ function getNewPrefix(clone_name) {
   if (exist) {
     return CoCreateUtils.getRandomString();
   } else {
-    if (!clone_name) return CoCreateUtils.getRandomString();
+    if (clone_name == undefined) return CoCreateUtils.getRandomString();
     return clone_name;  
   }
 }
