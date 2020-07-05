@@ -1,8 +1,6 @@
 var cloneBtnClass="cloneBtn";
 var deleteBtnClass = "deleteBtn";
 
-initSocketsForClone();
-initSaveFetchEls();
 initBtns();
 
 
@@ -27,7 +25,8 @@ function clickedCloneBtn(btn) {
 
     let cloneId = btn.getAttribute("data-clone_id");
     let clone_name_id = btn.getAttribute('data-clone_name');
-    
+    let clone_position = btn.getAttribute('data-clone_position') || 'before';
+
 
     if (!cloneId) return;
     
@@ -39,14 +38,18 @@ function clickedCloneBtn(btn) {
       clone_name = input.value ? input.value : '';
     }
 
-    let template = document.querySelector('#' + cloneId + '.template');
+    // let template = document.querySelector('#' + cloneId + '.template');
+    let template = document.getElementById(cloneId);
     
     
     if (!template) return;
   
     let clonedItem = template.cloneNode(true);
     
-    clonedItem.classList.remove('template');
+    if (clonedItem.classList.contains('template')) {
+      clonedItem.classList.remove('template');
+    }
+    
     clonedItem.classList.add('clonedItem');
     
     //// remove data-pass_value_id from clonedItem
@@ -64,28 +67,41 @@ function clickedCloneBtn(btn) {
     clonedItem.setAttribute('prefix', prefix);
     createDynamicCloneId(clonedItem, prefix);
     
-    template.parentNode.insertBefore(clonedItem, template);
+    if (clone_position === "after") {
+      if (template.nextSibling) {
+        template.parentNode.insertBefore(clonedItem, template.nextSibling);
+      } else {
+        template.parentNode.appendChild(clonedItem);
+      }
+    } else {
+      template.parentNode.insertBefore(clonedItem, template);
+    }
     
     const domEditorEl = CoCreateHtmlTags.findElementByChild(clonedItem);
     if (domEditorEl) {
-      sendMessageOfClone(domEditorEl, clonedItem, cloneId);
+      sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
       CoCreateHtmlTags.saveHtml(domEditorEl);
     }
 
     // createSortableForSaveFetch(clonedItem);
 }
 
-function sendMessageOfClone(parent, item, id) {
+function sendMessageOfClone(parent, item, id, position) {
   const document_id = parent.getAttribute('data-document_id');
   const name = parent.getAttribute('name')
+  
+  let value = {}
+  if (position == 'after') {
+    value = {'afterend': item.outerHTML}
+  } else {
+    value = { 'beforebegin': item.outerHTML}
+  }
   
   const message = {
     selector_type: 'querySelector',
     selector: `div.domEditor[data-document_id='${document_id}'][name='${name}'] #${id}.template`,
     method: 'insertAdjacentHTML',
-    value: {
-      'beforebegin': item.outerHTML
-    }
+    value: value
   }
   
   CoCreate.sendMessage({
