@@ -257,9 +257,9 @@ function getNewPrefix(clone_name) {
   }
   
   if (exist) {
-    return CoCreateUtils.getRandomString();
+    return CoCreateUtils.generateUUID(12);
   } else {
-    if (!clone_name) return CoCreateUtils.getRandomString();
+    if (!clone_name) return CoCreateUtils.generateUUID(12);
     return clone_name;  
   }
 }
