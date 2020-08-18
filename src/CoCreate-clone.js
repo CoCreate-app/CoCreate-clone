@@ -62,10 +62,13 @@ function clickedCloneBtn(btn) {
     }
     
     
-    let prefix = getNewPrefix(clone_name);
+    let prefix = '';//getNewPrefix(clone_name);
     
     clonedItem.setAttribute('prefix', prefix);
     createDynamicCloneId(clonedItem, prefix);
+    
+    //. create data-element_id for dnd
+    createDnDElementId(clonedItem);
     
     if (clone_position === "after") {
       if (template.nextSibling) {
@@ -78,6 +81,8 @@ function clickedCloneBtn(btn) {
     }
     
     const domEditorEl = CoCreateHtmlTags.findElementByChild(clonedItem);
+    console.log('----------------------------------')
+    console.log(domEditorEl)
     if (domEditorEl) {
       sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
       CoCreateHtmlTags.saveHtml(domEditorEl);
@@ -230,6 +235,18 @@ function createDynamicCloneId(clonedItem, prefix) {
     let newId = prefix == '' ? originalId : prefix + '_' + originalId;
     
     deleteBtn.setAttribute('data-clone_id', newId);
+  }
+}
+
+function createDnDElementId(clonedItem){
+  let dnd_elements = document.querySelectorAll('[data-coc-draggable="true"], [data-coc-droppable="true"]')
+  
+  dnd_elements.forEach((el) => {
+    el.setAttribute('data-element_id', CoCreateUtils.generateUUID());
+  })
+  
+  if (clonedItem.getAttribute('data-data-coc-draggable') == "true" || clonedItem.getAttribute('data-data-coc-droppable') == "true") {
+    clonedItem.setAttribute('data-element_id', CoCreateUtils.generateUUID());
   }
 }
 
