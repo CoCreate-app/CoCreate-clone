@@ -1,8 +1,6 @@
 var cloneBtnClass="cloneBtn";
 var deleteBtnClass = "deleteBtn";
 
-initSocketsForClone();
-initSaveFetchEls();
 initBtns();
 
 
@@ -27,7 +25,8 @@ function clickedCloneBtn(btn) {
 
     let cloneId = btn.getAttribute("data-clone_id");
     let clone_name_id = btn.getAttribute('data-clone_name');
-    
+    let clone_position = btn.getAttribute('data-clone_position') || 'before';
+
 
     if (!cloneId) return;
     
@@ -39,14 +38,18 @@ function clickedCloneBtn(btn) {
       clone_name = input.value ? input.value : '';
     }
 
-    let template = document.querySelector('#' + cloneId + '.template');
+    // let template = document.querySelector('#' + cloneId + '.template');
+    let template = document.getElementById(cloneId);
     
     
     if (!template) return;
   
     let clonedItem = template.cloneNode(true);
     
-    clonedItem.classList.remove('template');
+    if (clonedItem.classList.contains('template')) {
+      clonedItem.classList.remove('template');
+    }
+    
     clonedItem.classList.add('clonedItem');
     
     //// remove data-pass_value_id from clonedItem
@@ -59,34 +62,95 @@ function clickedCloneBtn(btn) {
     }
     
     
-    let prefix = getNewPrefix(clone_name);
+    let prefix = '';//getNewPrefix(clone_name);
     
     clonedItem.setAttribute('prefix', prefix);
     createDynamicCloneId(clonedItem, prefix);
     
-    template.parentNode.insertBefore(clonedItem, template);
+    //. create data-element_id for dnd
+    createDnDElementId(clonedItem);
     
-    let saveFetchEl = findSaveFetchElByChild(clonedItem);
+    if (clone_position === "after") {
+      if (template.nextSibling) {
+        template.parentNode.insertBefore(clonedItem, template.nextSibling);
+      } else {
+        template.parentNode.appendChild(clonedItem);
+      }
+    } else {
+      template.parentNode.insertBefore(clonedItem, template);
+    }
     
-    if (saveFetchEl) saveHtml(saveFetchEl);
-    
-    createSortableForSaveFetch(clonedItem);
+    const domEditorEl = CoCreateHtmlTags.findElementByChild(clonedItem);
+    console.log('----------------------------------')
+    console.log(domEditorEl)
+    if (domEditorEl) {
+      sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
+      CoCreateHtmlTags.save(domEditorEl);
+    }
+
+    // createSortableForSaveFetch(clonedItem);
+}
+
+function sendMessageOfClone(parent, item, id, position) {
+  const document_id = parent.getAttribute('data-document_id');
+  const name = parent.getAttribute('name')
+  
+  let value = {}
+  if (position == 'after') {
+    value = {'afterend': item.outerHTML}
+  } else {
+    value = { 'beforebegin': item.outerHTML}
+  }
+  
+  const message = {
+    selector_type: 'querySelector',
+    selector: `div.domEditor[data-document_id='${document_id}'][name='${name}'] #${id}.template`,
+    method: 'insertAdjacentHTML',
+    value: value
+  }
+  
+  CoCreate.sendMessage({
+    rooms: [],
+    emit: {
+      message: 'domEditor',
+      data: message
+    },
+  })
+  console.log(message);
+}
+
+function sendMessageOfDelete(element_id) {
+  const message = {
+    selector_type: 'getElementById',
+    selector: element_id,
+    method: 'remove',
+  }
+  
+  CoCreate.sendMessage({
+    rooms: [],
+    emit: {
+      message: 'domEditor',
+      data: message
+    }
+  })
+  console.log(message)
+  
 }
 
 function clickedDeleteBtn(btn) {
-  console.log(btn);
-  
+
   let id = btn.getAttribute('data-clone_id');
-  console.log(id);
-  
+
   let item = document.getElementById(id);
-  
-  console.log(item);
-  
+
   if (item) {
-    let saveFetchEl = findSaveFetchElByChild(item);  
+    const domEditorEl = CoCreateHtmlTags.findElementByChild(item);
     item.remove();
-    if (saveFetchEl) saveHtml(saveFetchEl);
+    
+    sendMessageOfDelete(id);
+    if (domEditorEl) {
+      CoCreateHtmlTags.save(domEditorEl);
+    }
   }
 }
 
@@ -174,6 +238,18 @@ function createDynamicCloneId(clonedItem, prefix) {
   }
 }
 
+function createDnDElementId(clonedItem){
+  let dnd_elements = document.querySelectorAll('[data-draggable="true"], [data-droppable="true"]')
+  
+  dnd_elements.forEach((el) => {
+    el.setAttribute('data-element_id', CoCreateUtils.generateUUID());
+  })
+  
+  if (clonedItem.getAttribute('data-data-draggable') == "true" || clonedItem.getAttribute('data-data-droppable') == "true") {
+    clonedItem.setAttribute('data-element_id', CoCreateUtils.generateUUID());
+  }
+}
+
 function getOriginal(string) {
   let original = string;
   let index = string.indexOf('_');
@@ -200,7 +276,7 @@ function getNewPrefix(clone_name) {
   if (exist) {
     return CoCreateUtils.generateUUID(12);
   } else {
-    if (clone_name == undefined) return CoCreateUtils.generateUUID(12);
+    if (!clone_name) return CoCreateUtils.generateUUID(12);
     return clone_name;  
   }
 }
