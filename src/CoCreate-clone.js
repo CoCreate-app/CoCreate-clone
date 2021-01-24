@@ -7,23 +7,23 @@ const CoCreateClone = {
 	},
 	
 	__initButtonEvent: function() {
-		const self = this;
-		document.addEventListener('click', function(e) {
-			for (let i=0; i < e.path.length; i++) {
-				let tag = e.path[i];
+		// const self = this;
+		// document.addEventListener('click', function(e) {
+		// 	for (let i=0; i < e.path.length; i++) {
+		// 		let tag = e.path[i];
 				
-				if (tag.classList && tag.classList.contains(self.__cloneBtnClass)) {
-					self.__cloneElement(tag)
-				}
+		// 		if (tag.classList && tag.classList.contains(self.__cloneBtnClass)) {
+		// 			self.__cloneElement(tag)
+		// 		}
 				
-				if (tag.classList && tag.classList.contains(self.__deleteBtnClass)) {
-					self.__deleteElement(tag)
-				}
-			}
-		}) 
+		// 		if (tag.classList && tag.classList.contains(self.__deleteBtnClass)) {
+		// 			self.__deleteElement(tag)
+		// 		}
+		// 	}
+		// }) 
 	},
 	
-	__cloneElement: function(cloneBtn) {
+	cloneElement: function(cloneBtn) {
 		const cloneId = cloneBtn.getAttribute("data-clone_id");
 		const clone_name_id = cloneBtn.getAttribute('data-clone_name');
 		const clone_position = cloneBtn.getAttribute('data-clone_position') || 'before';
@@ -58,7 +58,7 @@ const CoCreateClone = {
 
 		let prefix = this.__getNewPrefix(clone_name);
 		
-		clonedItem.setAttribute('prefix', prefix);
+		// clonedItem.setAttribute('prefix', prefix);
 		this.__createDynamicCloneId(clonedItem, prefix);
 		
 		//. create data-element_id for dnd
@@ -91,9 +91,12 @@ const CoCreateClone = {
 				type: 'create'
 			}
 		}));
+		document.dispatchEvent(new CustomEvent('clone-cloned', {
+			detail: {element: clonedItem}
+		}))
 	},
 	
-	__deleteElement: function(deleteBtn) {
+	deleteElement: function(deleteBtn) {
 
 		let id = deleteBtn.getAttribute('data-clone_id');
 	
@@ -119,6 +122,9 @@ const CoCreateClone = {
 					}
 				}));
 			}
+			document.dispatchEvent(new CustomEvent('clone-deleted', {
+				detail: {}
+			}))
 		}
 	},
 	
@@ -130,12 +136,13 @@ const CoCreateClone = {
 		
 		tags = Array.from(tags);
 		tags.push(clonedItem);
-		tags.forEach((tag) => {
-			let name = tag.getAttribute('name');
-			if (name) self.__setAttribute(tag, 'name', name, prefix);
-		})
+		// tags.forEach((tag) => {
+		// 	let name = tag.getAttribute('name');
+		// 	if (name) self.__setAttribute(tag, 'name', name, prefix);
+		// })
 		
-		self.__setAttribute(clonedItem, 'id', clonedItem.id, prefix)
+		// self.__setAttribute(clonedItem, 'id', clonedItem.id, prefix)
+		clonedItem.setAttribute('id', prefix);
 
 		/** set data-xxxx="[prefix][any]" **/
 		tags.forEach((el) => {
@@ -180,7 +187,7 @@ const CoCreateClone = {
 		
 		deleteBtns.forEach((btn) => {
 			let clone_id = btn.getAttribute('data-clone_id');
-			if (clone_id) self.__setAttribute(btn, 'data-clone_id', clone_id, prefix)
+			if (clone_id) btn.setAttribute('data-clone_id', prefix)
 		})
 	},
 	
@@ -230,8 +237,19 @@ const CoCreateClone = {
 	},
 	
 	__sendMessageOfClone: function(parent, item, id, position) {
-		const document_id = parent.getAttribute('data-document_id');
-		const name = parent.getAttribute('name')
+		const document_id = parent.getAttribute('data-document_id') || "";
+		const name = parent.getAttribute('name') || "";
+		
+		let addtionSelector = ""
+		if (document_id) {
+			addtionSelector = `[data-document_id='${document_id}']`;
+		} else {
+			return ;
+		}
+		
+		if (name) {
+			addtionSelector += `[name='${name}']`;
+		}
 		
 		let value = {}
 		if (position == 'after') {
@@ -242,7 +260,7 @@ const CoCreateClone = {
 		
 		const message = {
 			selector_type: 'querySelector',
-			selector: `div.domEditor[data-document_id='${document_id}'][name='${name}'] #${id}.template`,
+			selector: `div.domEditor${addtionSelector} #${id}.template`,
 			method: 'insertAdjacentHTML',
 			value: value
 		}
@@ -274,3 +292,8 @@ const CoCreateClone = {
 }
 
 CoCreateClone.init();
+CoCreateAction.registerEvent("cloneAction", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
+CoCreateAction.registerEvent("createClone", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
+CoCreateAction.registerEvent("deleteClone", CoCreateClone.deleteElement, CoCreateClone, "clone-deleted");
+
+export default CoCreateClone;
