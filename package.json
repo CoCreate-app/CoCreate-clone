@@ -1,8 +1,8 @@
 {
   "name": "@cocreate/clone",
   "version": "1.0.0",
-  "description": "A simple HTML5 and pure javascript component. Easy configuration using data-attributes and/or JavaScript API. Highly customizable and styleable.",
-  "keywords": ["cocreate","no-code-framework","cocreatejs","cocreatejs-component","cocreate-framework","no-code","low-code","collaborative-framework","realtime","realtime-framework","collaboration","shared-editing","html5-framework","javascript-framework"],
+  "description": "A simple element cloning component in vanilla javascript. Easy configuration using HTML5 data-attributes and/or JavaScript API.",
+  "keywords": ["clone-elements","element-cloning","dom-clone","cocreate","no-code-framework","cocreatejs","cocreatejs-component","cocreate-framework","no-code","low-code","collaborative-framework","realtime","realtime-framework","collaboration","shared-editing","html5-framework","javascript-framework"],
   "publishConfig": {
     "access": "public"
   },
