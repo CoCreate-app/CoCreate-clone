@@ -1,5 +1,5 @@
 # CoCreate-clone
-A simple HTML5 and pure javascript component. Easy configuration using data-attributes and highly styleable.
+A simple clone component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/clone)
 
 ![GitHub file size in bytes](https://img.shields.io/github/size/CoCreate-app/CoCreate-clone/dist/CoCreate-clone.min.js?label=minified%20size&style=for-the-badge) 
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreate-clone?style=for-the-badge)

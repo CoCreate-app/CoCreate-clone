@@ -9,20 +9,22 @@ module.exports = {
     sources: [{
             path: "./docs/index.html",
             collection: "website-pages",
-            document_id: "",
+            document_id: "60119d34ef30c40e45dde2da",
             key: "html",
             data:{
-                description:"test descrition"
+                name:"Clone doc"
             }
         },
     ],
 
     crud: [{
             collection: "routes",
-            document_id: "",
-            data:{collection: "website-pages",
-                document_id: "",
+            document_id: "60119d34ef30c40e45dde2d9",
+            data:{
+                collection: "website-pages",
+                document_id: "60119d34ef30c40e45dde2da",
                 domains: ["general.cocreate.app"],
+                name: "html",
                 route: "/docs/clone",
             }
         }
