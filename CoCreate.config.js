@@ -10,10 +10,13 @@ module.exports = {
             path: "./docs/index.html",
             collection: "website-pages",
             document_id: "",
-            name: "html",
+            key: "html",
+            data:{
+                description:"test descrition"
+            }
         },
     ],
-   
+
     crud: [{
             collection: "routes",
             document_id: "",
