@@ -1,33 +1,9 @@
-const clone = {
+const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
 	__deleteBtnClass: 'deleteBtn',
 	
 	init: function() {
 		this.__initButtonEvent();
-		
-		CoCreate.socket.listen('CoCreateClone-insert', function(data) {
-			let {selector, element_str, position} = data;
-			if (!selector) return
-			
-			let container = document.querySelector(selector)
-			
-			if (container) {
-				if (position == "after") position = "afterend";
-				else position = "beforebegin";
-				
-				container.insertAdjacentHTML(position, element_str)
-			}
-		})
-		
-		CoCreate.socket.listen('CoCreateClone-delete', function(data) {
-			let {element_id} = data;
-			if (!element_id) return
-			
-			let selected_el = document.getElementById(element_id)
-			if (selected_el) {
-				selected_el.remove();
-			}
-		})
 	},
 	
 	__initButtonEvent: function() {
@@ -37,11 +13,11 @@ const clone = {
 		// 		let tag = e.path[i];
 				
 		// 		if (tag.classList && tag.classList.contains(self.__cloneBtnClass)) {
-		// 			self.cloneElement(tag)
+		// 			self.__cloneElement(tag)
 		// 		}
 				
 		// 		if (tag.classList && tag.classList.contains(self.__deleteBtnClass)) {
-		// 			self.deleteElement(tag)
+		// 			self.__deleteElement(tag)
 		// 		}
 		// 	}
 		// }) 
@@ -275,28 +251,41 @@ const clone = {
 			addtionSelector += `[name='${name}']`;
 		}
 		
+		let value = {}
+		if (position == 'after') {
+			value = {'afterend': item.outerHTML}
+		} else {
+			value = { 'beforebegin': item.outerHTML}
+		}
+		
+		const message = {
+			selector_type: 'querySelector',
+			selector: `div.domEditor${addtionSelector} #${id}.template`,
+			method: 'insertAdjacentHTML',
+			value: value
+		}
+		
 		CoCreate.message.send({
 			rooms: [],
 			emit: {
-				message: 'CoCreateClone-insert',
-				data: {
-					selector: `div.domEditor${addtionSelector} #${id}.template`,
-					element_str: item.outerHTML,
-					position: position
-				}
+				message: 'domEditor',
+				data: message
 			},
 		})
 	},
 	
 	__sendMessageOfDelete: function(element_id) {
-
+		const message = {
+			selector_type: 'getElementById',
+			selector: element_id,
+			method: 'remove',
+		}
+		
 		CoCreate.message.send({
 			rooms: [],
 			emit: {
-				message: 'CoCreateClone-remove',
-				data: {
-					element_id: element_id  
-				}
+				message: 'domEditor',
+				data: message
 			}
 		})
 	}
@@ -306,4 +295,4 @@ CoCreateClone.init();
 CoCreateAction.registerEvent("cloneAction", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
 CoCreateAction.registerEvent("createClone", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
 CoCreateAction.registerEvent("deleteClone", CoCreateClone.deleteElement, CoCreateClone, "clone-deleted");
-export default clone;
+export default CoCreateClone;
