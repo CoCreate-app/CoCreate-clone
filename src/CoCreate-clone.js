@@ -1,4 +1,4 @@
-const clone = {
+const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
 	__deleteBtnClass: 'deleteBtn',
 	
@@ -303,7 +303,9 @@ const clone = {
 }
 
 CoCreateClone.init();
+
 CoCreateAction.registerEvent("cloneAction", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
 CoCreateAction.registerEvent("createClone", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
 CoCreateAction.registerEvent("deleteClone", CoCreateClone.deleteElement, CoCreateClone, "clone-deleted");
-export default clone;
+
+export default CoCreateClone;
