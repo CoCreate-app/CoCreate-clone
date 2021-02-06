@@ -74,7 +74,7 @@ const CoCreateClone = {
 			template.parentNode.insertBefore(clonedItem, template);
 		}
 		
-		const domEditorEl = CoCreateHtmlTags.findElementByChild(clonedItem);
+		const domEditorEl = CoCreate.htmlTags.findElementByChild(clonedItem);
 		if (domEditorEl) {
 			this.__sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
 		}
@@ -292,7 +292,26 @@ const CoCreateClone = {
 }
 
 CoCreateClone.init();
-CoCreateAction.registerEvent("cloneAction", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
-CoCreateAction.registerEvent("createClone", CoCreateClone.cloneElement, CoCreateClone, "clone-cloned");
-CoCreateAction.registerEvent("deleteClone", CoCreateClone.deleteElement, CoCreateClone, "clone-deleted");
+CoCreate.actions.add({
+	action: "cloneAction",
+	endEvent: "clone-cloned",
+	callback: (btn, data) => {
+		CoCreateClone.cloneElement(btn)
+	},
+})
+CoCreate.actions.add({
+	action: "createClone",
+	endEvent: "clone-cloned",
+	callback: (btn, data) => {
+		CoCreateClone.cloneElement(btn)
+	},
+})
+CoCreate.actions.add({
+	action: "deleteClone",
+	endEvent: "clone-deleted",
+	callback: (btn, data) => {
+		CoCreateClone.deleteElement(btn)
+	},
+})
+
 export default CoCreateClone;
