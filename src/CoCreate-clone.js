@@ -305,21 +305,21 @@ const CoCreateClone = {
 
 CoCreateClone.init();
 
-CoCreate.actions.add({
+CoCreate.action.init({
 	action: "cloneAction",
 	endEvent: "clone-cloned",
 	callback: (btn, data) => {
 		CoCreateClone.cloneElement(btn)
 	},
 })
-CoCreate.actions.add({
+CoCreate.action.init({
 	action: "createClone",
 	endEvent: "clone-cloned",
 	callback: (btn, data) => {
 		CoCreateClone.cloneElement(btn)
 	},
 })
-CoCreate.actions.add({
+CoCreate.action.init({
 	action: "deleteClone",
 	endEvent: "clone-deleted",
 	callback: (btn, data) => {
