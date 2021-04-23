@@ -26,7 +26,7 @@ For a complete guide and working demo refer to the [doumentation](https://cocrea
 ## NPM
 
 ```shell
-$ npm install @cocreate/clone
+$ npm i @cocreate/clone
 ```
 
 # Table of Contents
