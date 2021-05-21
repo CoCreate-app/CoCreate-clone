@@ -1,4 +1,6 @@
 
+import uuid from '@cocreate/uuid'
+
 const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
 	__deleteBtnClass: 'deleteBtn',
@@ -234,11 +236,11 @@ const CoCreateClone = {
 		let dnd_elements = document.querySelectorAll('[data-draggable="true"], [data-droppable="true"]')
 			
 		dnd_elements.forEach((el) => {
-			el.setAttribute('data-element_id', CoCreate.utils.generateUUID());
+			el.setAttribute('data-element_id', uuid.generate());
 		})
 		
 		if (clonedItem.getAttribute('data-draggable') == "true" || clonedItem.getAttribute('data-droppable') == "true") {
-			clonedItem.setAttribute('data-element_id', CoCreate.utils.generateUUID());
+			clonedItem.setAttribute('data-element_id', uuid.generate());
 		}
 	},
 	
@@ -255,7 +257,7 @@ const CoCreateClone = {
 		})
 		
 		if (exist || !clone_name) {
-			return CoCreate.utils.generateUUID(12);
+			return uuid.generate();
 		} else {
 			return clone_name;  
 		}
