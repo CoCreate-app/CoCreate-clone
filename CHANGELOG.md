@@ -1,3 +1,11 @@
+## [1.0.8](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.7...v1.0.8) (2021-06-06)
+
+
+### Bug Fixes
+
+* add cocreate-uuid ([e1ac11a](https://github.com/CoCreate-app/CoCreate-clone/commit/e1ac11afaf301dc19456fad2afdb64759e347880))
+* add cocreate-uuid ([692769c](https://github.com/CoCreate-app/CoCreate-clone/commit/692769c56af79d56d9032ec3a09b0af2a2caf489))
+
 ## [1.0.7](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.6...v1.0.7) (2021-05-08)
 
 
