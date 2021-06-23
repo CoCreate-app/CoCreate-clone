@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.10...v1.0.11) (2021-06-23)
+
+
+### Bug Fixes
+
+* getParentElement from utils ([ed24d06](https://github.com/CoCreate-app/CoCreate-clone/commit/ed24d06657681156604de1b6249cd5599d8956c8))
+
 ## [1.0.10](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.9...v1.0.10) (2021-06-20)
 
 
