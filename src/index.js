@@ -1,4 +1,4 @@
-
+import utils from '@cocreate/utils'
 import uuid from '@cocreate/uuid'
 
 const CoCreateClone = {
@@ -101,7 +101,8 @@ const CoCreateClone = {
 			template.parentNode.insertBefore(clonedItem, template);
 		}
 		
-		const domEditorEl = CoCreate.htmlTags.findElementByChild(clonedItem);
+		// const domEditorEl = CoCreate.htmlTags.findElementByChild(clonedItem);
+		const domEditorEl = utils.getParentFromElement(clonedItem);
 		if (domEditorEl) {
 			this.__sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
 		}
