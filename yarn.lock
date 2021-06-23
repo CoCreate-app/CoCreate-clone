@@ -913,6 +913,14 @@
     "@cocreate/uuid" "^1.0.6"
     ws "^7.4.4"
 
+"@cocreate/utils@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@cocreate/utils/-/utils-1.0.10.tgz#989ceec491f49b3deba3c700b73d81a7d33ee8b0"
+  integrity sha512-6SckyKKc54mqLCnhe/WdBNW9aQH2GxX+HDiyGU6CCIQM6h0TcuY/huAS2seQe+5zfoTdlQTAeH2xiEdmIcgz3w==
+  dependencies:
+    "@cocreate/docs" "^1.0.3"
+    mini-css-extract-plugin "^1.5.0"
+
 "@cocreate/uuid@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@cocreate/uuid/-/uuid-1.0.6.tgz#f7bf628dcb5e337c9a6f93d879375ae767c98fea"
