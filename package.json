@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/clone",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Clone an html element by #id, identify targeted elements using data-clone_id attribute. Capable of creating nested & complex cloning logic for kanbans, tasklists etc. Easy configuration using HTML5 data-attributes and/or JavaScript API.",
   "keywords": [
     "clone-elements",
@@ -21,7 +21,9 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npx webpack --config webpack.config.js",
     "build": "NODE_ENV=production npx webpack --config webpack.config.js",
@@ -35,7 +37,9 @@
   },
   "author": "CoCreate LLC",
   "license": "MIT",
-  "bugs": { "url": "https://github.com/CoCreate-app/CoCreate-clone/issues" },
+  "bugs": {
+    "url": "https://github.com/CoCreate-app/CoCreate-clone/issues"
+  },
   "homepage": "https://cocreate.app/docs/clone",
   "funding": {
     "type": "GitHub Sponsors ❤",
