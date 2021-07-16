@@ -1,3 +1,18 @@
+## [1.0.21](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.20...v1.0.21) (2021-07-14)
+
+
+### Bug Fixes
+
+* upgrade all packages ([74af749](https://github.com/CoCreate-app/CoCreate-clone/commit/74af749f98bb573b7e64b1f49f673f64a5a5cd81))
+
+## [1.0.20](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.19...v1.0.20) (2021-07-13)
+
+
+### Bug Fixes
+
+* add yarn lockfile to git ignore ([0880a71](https://github.com/CoCreate-app/CoCreate-clone/commit/0880a71922c5c3a71bd04a8537cb06b243388cec))
+* remove yarn.lock ([9d95039](https://github.com/CoCreate-app/CoCreate-clone/commit/9d95039e279d57d4be1398254386b4de9c1d70dd))
+
 ## [1.0.19](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.0.18...v1.0.19) (2021-07-10)
 
 
