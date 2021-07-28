@@ -75,12 +75,12 @@ const CoCreateClone = {
 		
 		clonedItem.classList.add('clonedItem');
 		
-		//// remove data-pass_value_id from clonedItem
-		clonedItem.removeAttribute('data-pass_value_id');
+		//// remove pass-value_id from clonedItem
+		clonedItem.removeAttribute('pass-value_id');
 		let tags = clonedItem.querySelectorAll("*");
 		
 		tags.forEach((tag) => {
-			tag.removeAttribute('data-pass_value_id');
+			tag.removeAttribute('pass-value_id');
 		})
 
 		let prefix = this.__getNewPrefix(clone_name);
