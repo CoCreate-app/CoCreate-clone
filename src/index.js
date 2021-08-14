@@ -1,5 +1,6 @@
 import utils from '@cocreate/utils'
 import uuid from '@cocreate/uuid'
+// import action from '@cocreate/action'
 
 const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
@@ -8,29 +9,29 @@ const CoCreateClone = {
 	init: function() {
 		this.__initButtonEvent();
 		
-		CoCreate.socket.listen('CoCreateClone-insert', function(data) {
-			let {selector, element_str, position} = data;
-			if (!selector) return
+		// CoCreate.socket.listen('CoCreateClone-insert', function(data) {
+		// 	let {selector, element_str, position} = data;
+		// 	if (!selector) return
 			
-			let container = document.querySelector(selector)
+		// 	let container = document.querySelector(selector)
 			
-			if (container) {
-				if (position == "after") position = "afterend";
-				else position = "beforebegin";
+		// 	if (container) {
+		// 		if (position == "after") position = "afterend";
+		// 		else position = "beforebegin";
 				
-				container.insertAdjacentHTML(position, element_str)
-			}
-		})
+		// 		container.insertAdjacentHTML(position, element_str)
+		// 	}
+		// })
 		
-		CoCreate.socket.listen('CoCreateClone-delete', function(data) {
-			let {element_id} = data;
-			if (!element_id) return
+		// CoCreate.socket.listen('CoCreateClone-delete', function(data) {
+		// 	let {element_id} = data;
+		// 	if (!element_id) return
 			
-			let selected_el = document.getElementById(element_id)
-			if (selected_el) {
-				selected_el.remove();
-			}
-		})
+		// 	let selected_el = document.getElementById(element_id)
+		// 	if (selected_el) {
+		// 		selected_el.remove();
+		// 	}
+		// })
 	},
 	
 	__initButtonEvent: function() {
@@ -88,7 +89,7 @@ const CoCreateClone = {
 		// clonedItem.setAttribute('prefix', prefix);
 		this.__createDynamicCloneId(clonedItem, prefix);
 		
-		//. create data-element_id for dnd
+		//. create element_id for dnd
 		this.__createDnDElementId(clonedItem);
 		
 		if (clone_position === "after") {
@@ -237,11 +238,11 @@ const CoCreateClone = {
 		let dnd_elements = document.querySelectorAll('[draggable="true"], [droppable="true"]')
 			
 		dnd_elements.forEach((el) => {
-			el.setAttribute('data-element_id', uuid.generate());
+			el.setAttribute('element_id', uuid.generate(6));
 		})
 		
 		if (clonedItem.getAttribute('draggable') == "true" || clonedItem.getAttribute('droppable') == "true") {
-			clonedItem.setAttribute('data-element_id', uuid.generate());
+			clonedItem.setAttribute('element_id', uuid.generate(6));
 		}
 	},
 	
@@ -258,7 +259,7 @@ const CoCreateClone = {
 		})
 		
 		if (exist || !clone_name) {
-			return uuid.generate();
+			return uuid.generate(6);
 		} else {
 			return clone_name;  
 		}
