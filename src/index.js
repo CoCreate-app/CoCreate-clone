@@ -234,13 +234,13 @@ const CoCreateClone = {
 	},
 	
 	__createDnDElementId: function(clonedItem) {
-		let dnd_elements = document.querySelectorAll('[data-draggable="true"], [data-droppable="true"]')
+		let dnd_elements = document.querySelectorAll('[draggable="true"], [droppable="true"]')
 			
 		dnd_elements.forEach((el) => {
 			el.setAttribute('data-element_id', uuid.generate());
 		})
 		
-		if (clonedItem.getAttribute('data-draggable') == "true" || clonedItem.getAttribute('data-droppable') == "true") {
+		if (clonedItem.getAttribute('draggable') == "true" || clonedItem.getAttribute('droppable') == "true") {
 			clonedItem.setAttribute('data-element_id', uuid.generate());
 		}
 	},
