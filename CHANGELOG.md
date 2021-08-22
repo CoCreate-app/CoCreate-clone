@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.3...v1.1.4) (2021-08-22)
+
+
+### Bug Fixes
+
+* bump package versions ([44331ec](https://github.com/CoCreate-app/CoCreate-clone/commit/44331ecc7dffefb3b9056b559df1465f13d83880))
+
 ## [1.1.3](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.2...v1.1.3) (2021-08-14)
 
 
