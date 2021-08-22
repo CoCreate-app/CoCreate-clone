@@ -35,7 +35,7 @@
 
 	<body>
 
-		<a data-clone_id="stage" actions="createClone">New Stage</a>
+		<a clone_id="stage" actions="createClone">New Stage</a>
 		<!--<div id="saveFetch1" -->
 		<!--  class="domEditor" -->
 		<!--  name='clonehtml7' -->
@@ -47,34 +47,34 @@
 
 			<div id="stage" class="Sortable stage template" style="padding:15px" class="">
 				<span style="color:#fff; font-size:20px" class="noDrag">Stage</span>
-				<span style="float:right;"><a data-clone_id="stage" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
+				<span style="float:right;"><a clone_id="stage" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
 
 				<div class="Sortable" dnd-group-name="cards" data-place1_id="[prefix]-place_id">
 
 					<div id="card" class="card template" style="padding:15px">
 						<span class="noDrag">Card</span>
-						<span style="float:right;"><a data-clone_id="card" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
+						<span style="float:right;"><a clone_id="card" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
 
 						<div class="Sortable" dnd-group-name="taskliste">
 							<div id="tasklist" class="tasklist template">
 								<span class="noDrag">Tasklist</span>
-								<span style="float:right;"><a data-clone_id="tasklist" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
+								<span style="float:right;"><a clone_id="tasklist" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
 
 								<form collection="module_activity" class="Sortable" dnd-group-name="task-itemse" id="testForm">
 									<div id="task-item" style="" class="template">
 										<div style="display:inline-block;width: calc(100% - 20px);">
 											<input class="floating-label" data-module_activity_id="5d8c79e7e4be424681b5e48d" name="taskname" placeholder="Task Name"></div>
-										<span style="float:right;"><a data-clone_id="task-item" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
+										<span style="float:right;"><a clone_id="task-item" class="deleteBtn noDrag"><i class="fas fa-times"></i></a></span>
 									</div>
 								</form>
-								<a data-clone_id="task-item" class="cloneBtn noDrag" style="display: block">Add Task</a>
+								<a clone_id="task-item" class="cloneBtn noDrag" style="display: block">Add Task</a>
 							</div>
 							<!-- Cloneable Tasklist element -->
 						</div>
 						<!-- Sortable Tasklist Container -->
 
 						<div style=width="100%" class="noDrag">
-							<input id="tasklist-name"><a data-clone_id="tasklist" actions="createClone" class=" noDrag" style="display: block" data-clone_name="tasklist-name">New Tasklist</a>
+							<input id="tasklist-name"><a clone_id="tasklist" actions="createClone" class=" noDrag" style="display: block" clone-name="tasklist-name">New Tasklist</a>
 
 
 						</div>
@@ -84,7 +84,7 @@
 				</div>
 				<!-- Sortable Card Container -->
 
-				<a data-clone_id="card" actions="createClone" class="noDrag" data-clone_name="card-name">New Card</a><input id="card-name">
+				<a clone_id="card" actions="createClone" class="noDrag" clone-name="card-name">New Card</a><input id="card-name">
 
 			</div>
 			<!-- sortable and clonable stage -->

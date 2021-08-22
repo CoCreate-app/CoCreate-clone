@@ -1,6 +1,6 @@
 # CoCreate-clone
 
-Clone an html element by #id, identify targeted elements using data-clone_id attribute. Capable of creating nested & complex cloning logic for kanbans, tasklists etc. Easy configuration using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/clone)
+Clone an html element by #id, identify targeted elements using clone_id attribute. Capable of creating nested & complex cloning logic for kanbans, tasklists etc. Easy configuration using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/clone)
 
 ![minified](https://img.badgesize.io/https://cdn.cocreate.app/clone/latest/CoCreate-clone.min.js?style=flat-square&label=minified&color=orange)
 ![gzip](https://img.badgesize.io/https://cdn.cocreate.app/clone/latest/CoCreate-clone.min.js?compression=gzip&style=flat-square&label=gzip&color=yellow)

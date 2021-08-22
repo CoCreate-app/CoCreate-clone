@@ -52,9 +52,9 @@ const CoCreateClone = {
 	},
 	
 	cloneElement: function(cloneBtn) {
-		const cloneId = cloneBtn.getAttribute("data-clone_id");
-		const clone_name_id = cloneBtn.getAttribute('data-clone_name');
-		const clone_position = cloneBtn.getAttribute('data-clone_position') || 'before';
+		const cloneId = cloneBtn.getAttribute("clone_id");
+		const clone_name_id = cloneBtn.getAttribute('clone-name');
+		const clone_position = cloneBtn.getAttribute('clone-position') || 'before';
 		if (!cloneId) return;
 		
 		let clone_name;
@@ -127,7 +127,7 @@ const CoCreateClone = {
 	
 	deleteElement: function(deleteBtn) {
 
-		let id = deleteBtn.getAttribute('data-clone_id');
+		let id = deleteBtn.getAttribute('clone_id');
 	
 		let item = document.getElementById(id);
 	
@@ -198,25 +198,25 @@ const CoCreateClone = {
 		})
 		
 		cloneBtns.forEach((btn) => {
-			let clone_id = btn.getAttribute('data-clone_id');
-			let clone_name_id = btn.getAttribute('data-clone_name');
+			let clone_id = btn.getAttribute('clone_id');
+			let clone_name_id = btn.getAttribute('clone-name');
 
 			if (clone_id) {
 				let clonableItem = clonedItem.querySelector(`#${clone_id}`);
-				let newId = self.__setAttribute(btn, 'data-clone_id', clone_id, prefix)
+				let newId = self.__setAttribute(btn, 'clone_id', clone_id, prefix)
 				if (clonableItem) clonableItem.id = newId;
 			}
 			
 			if (clone_name_id) {
 				let clone_name_input = clonedItem.querySelector(`#${clone_name_id}`)
-				let newName = self.__setAttribute(btn, 'data-clone_name', clone_name_id, prefix)
+				let newName = self.__setAttribute(btn, 'clone-name', clone_name_id, prefix)
 				if (clone_name_input) clone_name_input.id = newName;
 			}
 		})
 		
 		deleteBtns.forEach((btn) => {
-			let clone_id = btn.getAttribute('data-clone_id');
-			if (clone_id) btn.setAttribute('data-clone_id', prefix)
+			let clone_id = btn.getAttribute('clone_id');
+			if (clone_id) btn.setAttribute('clone_id', prefix)
 		})
 	},
 	
