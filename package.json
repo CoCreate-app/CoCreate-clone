@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/clone",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "description": "Clone an html element by #id, identify targeted elements using clone_id attribute. Capable of creating nested & complex cloning logic for kanbans, tasklists etc. Easy configuration using HTML5 data-attributes and/or JavaScript API.",
   "keywords": [
     "clone-elements",
