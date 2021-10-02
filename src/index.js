@@ -1,6 +1,5 @@
-import utils from '@cocreate/utils'
-import uuid from '@cocreate/uuid'
-// import action from '@cocreate/action'
+import action from '@cocreate/action';
+import uuid from '@cocreate/uuid';
 
 const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
@@ -103,7 +102,8 @@ const CoCreateClone = {
 		}
 		
 		// const domEditorEl = CoCreate.htmlTags.findElementByChild(clonedItem);
-		const domEditorEl = utils.getParentFromElement(clonedItem);
+		// const domEditorEl = utils.getParentFromElement(clonedItem);
+		const domEditorEl = clonedItem.parentElement.closest('.domEditor');
 		if (domEditorEl) {
 			this.__sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
 		}
@@ -309,26 +309,28 @@ const CoCreateClone = {
 
 CoCreateClone.init();
 
-CoCreate.action.init({
+action.init({
 	action: "cloneAction",
 	endEvent: "clone-cloned",
 	callback: (btn, data) => {
-		CoCreateClone.cloneElement(btn)
-	},
-})
-CoCreate.action.init({
+		CoCreateClone.cloneElement(btn);
+	}
+});
+
+action.init({
 	action: "createClone",
 	endEvent: "clone-cloned",
 	callback: (btn, data) => {
-		CoCreateClone.cloneElement(btn)
-	},
-})
-CoCreate.action.init({
+		CoCreateClone.cloneElement(btn);
+	}
+});
+
+action.init({
 	action: "deleteClone",
 	endEvent: "clone-deleted",
 	callback: (btn, data) => {
-		CoCreateClone.deleteElement(btn)
-	},
-})
+		CoCreateClone.deleteElement(btn);
+	}
+});
 
 export default CoCreateClone;
