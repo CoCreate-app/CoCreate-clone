@@ -1,3 +1,10 @@
+## [1.1.23](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.22...v1.1.23) (2021-10-02)
+
+
+### Bug Fixes
+
+* find parent domEditor container ([5b234b5](https://github.com/CoCreate-app/CoCreate-clone/commit/5b234b51e5cd8c8a1d7153a98f6e4423596811d2))
+
 ## [1.1.22](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.21...v1.1.22) (2021-10-01)
 
 
