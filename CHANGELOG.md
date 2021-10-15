@@ -1,3 +1,11 @@
+## [1.1.32](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.31...v1.1.32) (2021-10-15)
+
+
+### Bug Fixes
+
+* update dependencies ([ce447d4](https://github.com/CoCreate-app/CoCreate-clone/commit/ce447d4d47250118f1a3e909a5c53b6e64b27556))
+* update dependencies ([28d0d20](https://github.com/CoCreate-app/CoCreate-clone/commit/28d0d20d4ffe944faada379c14d1d3888890458b))
+
 ## [1.1.31](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.30...v1.1.31) (2021-10-15)
 
 
