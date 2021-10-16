@@ -1,3 +1,10 @@
+## [1.1.33](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.32...v1.1.33) (2021-10-16)
+
+
+### Bug Fixes
+
+* update socket package to fix bug in docs ([c1a0343](https://github.com/CoCreate-app/CoCreate-clone/commit/c1a03437a486580687ba8adbc51d43f5c7f663ad))
+
 ## [1.1.32](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.31...v1.1.32) (2021-10-15)
 
 
