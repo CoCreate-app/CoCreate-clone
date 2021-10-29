@@ -1,13 +1,13 @@
 import action from '@cocreate/action';
 import uuid from '@cocreate/uuid';
+import {cssPath} from '@cocreate/utils';
 
 const CoCreateClone = {
 	__cloneBtnClass: 'cloneBtn',
 	__deleteBtnClass: 'deleteBtn',
 	
 	init: function() {
-		this.__initButtonEvent();
-		
+
 		// CoCreate.socket.listen('CoCreateClone-insert', function(data) {
 		// 	let {selector, element_str, position} = data;
 		// 	if (!selector) return
@@ -22,32 +22,15 @@ const CoCreateClone = {
 		// 	}
 		// })
 		
-		// CoCreate.socket.listen('CoCreateClone-delete', function(data) {
-		// 	let {element_id} = data;
-		// 	if (!element_id) return
+		// CoCreate.socket.listen('CoCreateClone-remove', function(data) {
+		// 	let {clone_id} = data;
+		// 	if (!clone_id) return
 			
-		// 	let selected_el = document.getElementById(element_id)
+		// 	let selected_el = document.getElementById(clone_id)
 		// 	if (selected_el) {
 		// 		selected_el.remove();
 		// 	}
 		// })
-	},
-	
-	__initButtonEvent: function() {
-		// const self = this;
-		// document.addEventListener('click', function(e) {
-		// 	for (let i=0; i < e.path.length; i++) {
-		// 		let tag = e.path[i];
-				
-		// 		if (tag.classList && tag.classList.contains(self.__cloneBtnClass)) {
-		// 			self.cloneElement(tag)
-		// 		}
-				
-		// 		if (tag.classList && tag.classList.contains(self.__deleteBtnClass)) {
-		// 			self.deleteElement(tag)
-		// 		}
-		// 	}
-		// }) 
 	},
 	
 	cloneElement: function(cloneBtn) {
@@ -89,7 +72,7 @@ const CoCreateClone = {
 		this.__createDynamicCloneId(clonedItem, prefix);
 		
 		//. create element_id for dnd
-		this.__createDnDElementId(clonedItem);
+		// this.__createDnDElementId(clonedItem);
 		
 		if (clone_position === "after") {
 			if (template.nextSibling) {
@@ -234,18 +217,6 @@ const CoCreateClone = {
 		return newValue;
 	},
 	
-	__createDnDElementId: function(clonedItem) {
-		let dnd_elements = document.querySelectorAll('[draggable="true"], [droppable="true"]')
-			
-		dnd_elements.forEach((el) => {
-			el.setAttribute('element_id', uuid.generate(6));
-		})
-		
-		if (clonedItem.getAttribute('draggable') == "true" || clonedItem.getAttribute('droppable') == "true") {
-			clonedItem.setAttribute('element_id', uuid.generate(6));
-		}
-	},
-	
 	__getNewPrefix: function(clone_name) {
 		let clonedItems = document.querySelectorAll('.clonedItem');
 		let exist = false;
@@ -293,14 +264,13 @@ const CoCreateClone = {
 		})
 	},
 	
-	__sendMessageOfDelete: function(element_id) {
-
+	__sendMessageOfDelete: function(clone_id) {
 		CoCreate.message.send({
 			rooms: [],
 			emit: {
 				message: 'CoCreateClone-remove',
 				data: {
-					element_id: element_id  
+					selector: clone_id  
 				}
 			}
 		})
