@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.34...v1.2.0) (2021-10-29)
+
+
+### Features
+
+* removed the need for element_id ([674669f](https://github.com/CoCreate-app/CoCreate-clone/commit/674669f1846369522266785234737eaaf009e7a5))
+
 ## [1.1.34](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.1.33...v1.1.34) (2021-10-17)
 
 
