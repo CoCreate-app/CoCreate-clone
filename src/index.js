@@ -277,8 +277,6 @@ const CoCreateClone = {
 	}
 }
 
-CoCreateClone.init();
-
 action.init({
 	action: "cloneAction",
 	endEvent: "clone-cloned",
@@ -302,5 +300,7 @@ action.init({
 		CoCreateClone.deleteElement(btn);
 	}
 });
+
+CoCreateClone.init();
 
 export default CoCreateClone;
