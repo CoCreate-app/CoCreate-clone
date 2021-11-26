@@ -1,3 +1,11 @@
+## [1.2.15](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.14...v1.2.15) (2021-11-26)
+
+
+### Bug Fixes
+
+* docs sidenav width ([b635725](https://github.com/CoCreate-app/CoCreate-clone/commit/b635725eb6e66637cf3e47c447f36e56168f0971))
+* updated action dependency to actions ([8abad8a](https://github.com/CoCreate-app/CoCreate-clone/commit/8abad8a6d93a2e86f61de77978cfbc157c71ceea))
+
 ## [1.2.14](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.13...v1.2.14) (2021-11-26)
 
 
