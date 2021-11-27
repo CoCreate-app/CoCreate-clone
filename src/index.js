@@ -1,4 +1,4 @@
-import action from '@cocreate/action';
+import action from '@cocreate/actions';
 import uuid from '@cocreate/uuid';
 import {cssPath} from '@cocreate/utils';
 
