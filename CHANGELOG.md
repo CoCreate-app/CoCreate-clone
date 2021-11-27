@@ -1,3 +1,11 @@
+## [1.2.18](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.17...v1.2.18) (2021-11-27)
+
+
+### Bug Fixes
+
+* actions import typo ([444d4fa](https://github.com/CoCreate-app/CoCreate-clone/commit/444d4fad63f347a41ae1fbb7d403f43937cbe262))
+* update dependencies ([ab65acc](https://github.com/CoCreate-app/CoCreate-clone/commit/ab65acc186e2d5ba657827126454847a2b81b618))
+
 ## [1.2.17](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.16...v1.2.17) (2021-11-27)
 
 
