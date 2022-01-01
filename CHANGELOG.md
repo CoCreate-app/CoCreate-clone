@@ -1,3 +1,10 @@
+## [1.2.21](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.20...v1.2.21) (2022-01-01)
+
+
+### Bug Fixes
+
+* removed data- from attributes ([c836cc4](https://github.com/CoCreate-app/CoCreate-clone/commit/c836cc4a9a31d0d98079b586890087372a8660d6))
+
 ## [1.2.20](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.19...v1.2.20) (2021-12-15)
 
 
