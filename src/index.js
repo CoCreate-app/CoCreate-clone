@@ -71,7 +71,7 @@ const CoCreateClone = {
 		// clonedItem.setAttribute('prefix', prefix);
 		this.__createDynamicCloneId(clonedItem, prefix);
 		
-		//. create element_id for dnd
+		//. create eid for dnd
 		// this.__createDnDElementId(clonedItem);
 		
 		if (clone_position === "after") {
@@ -156,7 +156,7 @@ const CoCreateClone = {
 		// self.__setAttribute(clonedItem, 'id', clonedItem.id, prefix)
 		clonedItem.setAttribute('id', prefix);
 
-		/** set data-xxxx="[prefix][any]" **/
+		/** set xxxx="[prefix][any]" **/
 		tags.forEach((el) => {
 			let tag = el.tagName.toLowerCase();
 			for (var i = 0; i < el.attributes.length; i++) {
