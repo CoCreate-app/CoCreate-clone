@@ -1,11 +1,9 @@
 import action from '@cocreate/actions';
+import render from '@cocreate/render';
 import uuid from '@cocreate/uuid';
 import {cssPath} from '@cocreate/utils';
 
-const CoCreateClone = {
-	__cloneBtnClass: 'cloneBtn',
-	__deleteBtnClass: 'deleteBtn',
-	
+const CoCreateClone = {	
 	init: function() {
 
 		// CoCreate.socket.listen('CoCreateClone-insert', function(data) {
@@ -34,47 +32,51 @@ const CoCreateClone = {
 	},
 	
 	cloneElement: function(cloneBtn) {
-		const cloneId = cloneBtn.getAttribute("clone_id");
-		const clone_name_id = cloneBtn.getAttribute('clone-name');
-		const clone_position = cloneBtn.getAttribute('clone-position') || 'before';
-		if (!cloneId) return;
-		
-		let clone_name;
-		
-		let input = document.getElementById(clone_name_id);
-		
-		if (input) {
-			clone_name = input.value ? input.value : '';
-		}
+		const cloneTarget = cloneBtn.getAttribute('clone-target');
+		const cloneClosest = cloneBtn.getAttribute('clone-closest');
+		const cloneParent = cloneBtn.getAttribute('clone-parent');
+		const cloneNext = cloneBtn.getAttribute('clone-next');
+		const clonePrevious = cloneBtn.getAttribute('clone-previous');
+		const clonePosition = cloneBtn.getAttribute('clone-position') || 'before';
 
-		let template = document.getElementById(cloneId);
-		if (!template) return;
+		let template;
+		if (cloneTarget)
+			template = document.querySelector(cloneTarget)
+		else if (cloneClosest)
+			template = cloneBtn.closest(cloneClosest)
+		else if (cloneParent)
+			template = cloneBtn.parentElement.querySelector(cloneParent)
+		else if (cloneNext)
+			template = cloneBtn.nextElementSibling.querySelector(cloneNext)
+		else if (clonePrevious)
+			template = cloneBtn.previousElementSibling.querySelector(clonePrevious)
+		if (!template) 
+			return;
 	
-		let clonedItem = template.cloneNode(true);
-		
-		if (clonedItem.classList.contains('template')) {
-			clonedItem.classList.remove('template');
-		}
-		
-		clonedItem.classList.add('clonedItem');
-		
-		//// remove pass-value_id from clonedItem
-		clonedItem.removeAttribute('pass-value_id');
-		let tags = clonedItem.querySelectorAll("*");
-		
-		tags.forEach((tag) => {
-			tag.removeAttribute('pass-value_id');
-		})
+		let clonedItem = template.cloneNode(true);		
+		let templateId = clonedItem.getAttribute('template_id') || clonedItem.getAttribute('template')
+		if (templateId)
+			clonedItem.setAttribute('templateId', templateId);
+		clonedItem.removeAttribute('template');
 
-		let prefix = this.__getNewPrefix(clone_name);
+		let cloneData = cloneBtn.getAttribute('clone-data');
+		if (cloneData) {
+			cloneData = JSON.parse(cloneData)
+			console.log('cloneData', cloneData)
+			render.data({
+				elements: [clonedItem],
+				data: cloneData,
+			});
+		}
+		//// remove pass-value_id from clonedItem
+		// clonedItem.removeAttribute('pass-value_id');
+		// let tags = clonedItem.querySelectorAll("*");
 		
-		// clonedItem.setAttribute('prefix', prefix);
-		this.__createDynamicCloneId(clonedItem, prefix);
+		// tags.forEach((tag) => {
+		// 	tag.removeAttribute('pass-value_id');
+		// })
 		
-		//. create eid for dnd
-		// this.__createDnDElementId(clonedItem);
-		
-		if (clone_position === "after") {
+		if (clonePosition === "after") {
 			if (template.nextSibling) {
 				template.parentNode.insertBefore(clonedItem, template.nextSibling);
 			} else {
@@ -83,158 +85,18 @@ const CoCreateClone = {
 		} else {
 			template.parentNode.insertBefore(clonedItem, template);
 		}
-		
-		// const domEditorEl = CoCreate.htmlTags.findElementByChild(clonedItem);
-		// const domEditorEl = utils.getParentFromElement(clonedItem);
+
 		const domEditorEl = clonedItem.parentElement.closest('.domEditor');
 		if (domEditorEl) {
-			this.__sendMessageOfClone(domEditorEl, clonedItem, cloneId, clone_position);
+			this.__sendMessageOfClone(domEditorEl, clonedItem, cloneId, clonePosition);
 		}
 		
-		//. cloned event
-		document.dispatchEvent(new CustomEvent('change-content', {
-			detail: {
-				element: clonedItem,
-				type: 'clone-create'
-			}
-		}))
-		template.parentNode.dispatchEvent(new CustomEvent('CoCreate-clone', {
-			detail: {
-				type: 'create'
-			}
-		}));
-		document.dispatchEvent(new CustomEvent('clone-cloned', {
+		document.dispatchEvent(new CustomEvent('cloned', {
 			detail: {element: clonedItem}
 		}))
 	},
 	
-	deleteElement: function(deleteBtn) {
-
-		let id = deleteBtn.getAttribute('clone_id');
 	
-		let item = document.getElementById(id);
-	
-		if (item) {
-			const parentNode = item.parentNode;
-			item.remove();
-
-			this.__sendMessageOfDelete(id);
-
-			//. cloned event
-			if (parentNode) {
-				document.dispatchEvent(new CustomEvent('change-content', {
-					detail: {
-						element: parentNode,
-						type: 'clone-delete'
-					}
-				}))
-				parentNode.dispatchEvent(new CustomEvent('CoCreate-clone', {
-					detail: {
-						type: 'delete'
-					}
-				}));
-			}
-			document.dispatchEvent(new CustomEvent('clone-deleted', {
-				detail: {}
-			}))
-		}
-	},
-	
-	__createDynamicCloneId: function(clonedItem, prefix) {
-		const self = this;
-		let tags = clonedItem.querySelectorAll("*");
-		let cloneBtns = clonedItem.querySelectorAll('.' + this.__cloneBtnClass);
-		let deleteBtns = clonedItem.querySelectorAll('.' + this.__deleteBtnClass);
-		
-		tags = Array.from(tags);
-		tags.push(clonedItem);
-		// tags.forEach((tag) => {
-		// 	let name = tag.getAttribute('name');
-		// 	if (name) self.__setAttribute(tag, 'name', name, prefix);
-		// })
-		
-		// self.__setAttribute(clonedItem, 'id', clonedItem.id, prefix)
-		clonedItem.setAttribute('id', prefix);
-
-		/** set xxxx="[prefix][any]" **/
-		tags.forEach((el) => {
-			let tag = el.tagName.toLowerCase();
-			for (var i = 0; i < el.attributes.length; i++) {
-				const {name, value} = el.attributes[i];
-				// const changedValue = value.replace(/\[prefix\]/g, prefix);
-				const changedValue = value.replace(/{{\s*clone-name\s*}}/g, prefix);
-				if (/{{\s*clone-name\s*}}/g.test(value) && name == "value") {
-					switch(tag) {
-						case 'input':
-							el.setAttribute("value", changedValue);
-						break;
-						case 'textarea':
-							el.setAttribute("value", changedValue);
-							el.textContent = changedValue;
-						break;
-						default:
-							el.innerHTML =  changedValue;
-					}
-				}
-				el.setAttribute(name, changedValue)
-			}
-		})
-		
-		cloneBtns.forEach((btn) => {
-			let clone_id = btn.getAttribute('clone_id');
-			let clone_name_id = btn.getAttribute('clone-name');
-
-			if (clone_id) {
-				let clonableItem = clonedItem.querySelector(`#${clone_id}`);
-				let newId = self.__setAttribute(btn, 'clone_id', clone_id, prefix)
-				if (clonableItem) clonableItem.id = newId;
-			}
-			
-			if (clone_name_id) {
-				let clone_name_input = clonedItem.querySelector(`#${clone_name_id}`)
-				let newName = self.__setAttribute(btn, 'clone-name', clone_name_id, prefix)
-				if (clone_name_input) clone_name_input.id = newName;
-			}
-		})
-		
-		deleteBtns.forEach((btn) => {
-			let clone_id = btn.getAttribute('clone_id');
-			if (clone_id) btn.setAttribute('clone_id', prefix)
-		})
-	},
-	
-	__getOriginal: function(str) {
-		let original = str;
-		let index = str.indexOf('_');
-		if (index > -1) original = str.substring(index + 1);
-		return original;
-	},
-	
-	__setAttribute: function(element, attrName, value, prefix) {
-		let orgValue = this.__getOriginal(value)
-		let newValue = prefix == '' ? orgValue : `${prefix}_${orgValue}`;
-		element.setAttribute(attrName, newValue)
-		return newValue;
-	},
-	
-	__getNewPrefix: function(clone_name) {
-		let clonedItems = document.querySelectorAll('.clonedItem');
-		let exist = false;
-		
-		clonedItems.forEach((el) => {
-			let prefix = el.getAttribute('prefix');
-			if (clone_name == prefix) {
-				exist = true; 
-				return;  
-			}
-		})
-		
-		if (exist || !clone_name) {
-			return uuid.generate(6);
-		} else {
-			return clone_name;  
-		}
-	},
 	
 	__sendMessageOfClone: function(parent, item, id, position) {
 		const document_id = parent.getAttribute('document_id') || "";
@@ -262,42 +124,15 @@ const CoCreateClone = {
 				}
 			},
 		})
-	},
-	
-	__sendMessageOfDelete: function(clone_id) {
-		CoCreate.message.send({
-			rooms: [],
-			emit: {
-				message: 'CoCreateClone-remove',
-				data: {
-					selector: clone_id  
-				}
-			}
-		})
 	}
+	
 }
 
 action.init({
-	action: "cloneAction",
-	endEvent: "clone-cloned",
+	name: "clone",
+	endEvent: "cloned",
 	callback: (btn, data) => {
 		CoCreateClone.cloneElement(btn);
-	}
-});
-
-action.init({
-	action: "createClone",
-	endEvent: "clone-cloned",
-	callback: (btn, data) => {
-		CoCreateClone.cloneElement(btn);
-	}
-});
-
-action.init({
-	action: "deleteClone",
-	endEvent: "clone-deleted",
-	callback: (btn, data) => {
-		CoCreateClone.deleteElement(btn);
 	}
 });
 
