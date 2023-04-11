@@ -7,7 +7,7 @@ module.exports = {
     
     "sources": [{
             "collection": "files",
-            "data":{
+            "document":{
                 "_id": "60119d34ef30c40e45dde2da",
                 "name": "index.html",
                 "path": "/docs/clone/index.html",
