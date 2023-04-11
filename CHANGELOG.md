@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.5...v1.3.6) (2023-04-11)
+
+
+### Bug Fixes
+
+* bump cdn to 1.49.2 ([211529a](https://github.com/CoCreate-app/CoCreate-clone/commit/211529aa53f7a9e1be879caf8e3da6077fc9ff83))
+
 ## [1.3.5](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.4...v1.3.5) (2023-04-11)
 
 
