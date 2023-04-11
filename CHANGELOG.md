@@ -1,3 +1,23 @@
+# [1.3.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.22...v1.3.0) (2023-04-11)
+
+
+### Bug Fixes
+
+*  bump [@cocreate](https://github.com/cocreate) dependencies ([96913ba](https://github.com/CoCreate-app/CoCreate-clone/commit/96913ba370a954dbfda3598290c157056431720c))
+* bump cdn to 1.48.2' ([3466e69](https://github.com/CoCreate-app/CoCreate-clone/commit/3466e6960044a930d1260a29c8b8918acbb22c83))
+* bump cdn to 1.49.0' ([610535b](https://github.com/CoCreate-app/CoCreate-clone/commit/610535bbce41875775d140ecbefb7526f2db63fa))
+* bump dependencies' ([58bb643](https://github.com/CoCreate-app/CoCreate-clone/commit/58bb643de46adc6fe8101b8dbe34c0b5594f240c))
+* bump dependencies' ([4daacb5](https://github.com/CoCreate-app/CoCreate-clone/commit/4daacb5fc3d51a1f54b4491666a25c3e524008a1))
+* bumped cdn to v1.48.1' ([2d39765](https://github.com/CoCreate-app/CoCreate-clone/commit/2d39765255c530567fca9e514d4c9e8989661f24))
+* renamed domains to hosts ([7f1258f](https://github.com/CoCreate-app/CoCreate-clone/commit/7f1258f3604e97ed9106f499740b4590c8753ec1))
+* update to v3 ([19cd60a](https://github.com/CoCreate-app/CoCreate-clone/commit/19cd60a95aa8274d8606c3540cc74dfe084fabd6))
+
+
+### Features
+
+* attributes for quering parent, an siblings ([2ea10f7](https://github.com/CoCreate-app/CoCreate-clone/commit/2ea10f70a83abeac2fa1c4ada8212383b5a87c6e))
+* replaced get-value and set-value with a super charged version of CoCreate-events ([d03f31a](https://github.com/CoCreate-app/CoCreate-clone/commit/d03f31a43b7905a044224b0c7ac54610ebf773a2))
+
 ## [1.2.22](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.21...v1.2.22) (2022-01-01)
 
 
