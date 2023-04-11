@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.1...v1.3.2) (2023-04-11)
+
+
+### Bug Fixes
+
+* docs ([22cf166](https://github.com/CoCreate-app/CoCreate-clone/commit/22cf16679181a4b0d37cc8a69a65e6eb062e5d53))
+
 ## [1.3.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.0...v1.3.1) (2023-04-11)
 
 
