@@ -2,12 +2,13 @@ module.exports = {
     "config": {
         "organization_id": "5ff747727005da1c272740ab",
         "apiKey": "2061acef-0451-4545-f754-60cf8160",
-        "host": "general.cocreate.app"
+        "host": "general.cocreate.app",
+        "url": "wss://general.cocreate.app/ws/5ff747727005da1c272740ab"
     },
-    
-    "sources": [{
+    "sources": [
+        {
             "collection": "files",
-            "document":{
+            "document": {
                 "_id": "60119d34ef30c40e45dde2da",
                 "name": "index.html",
                 "path": "/docs/clone/index.html",
@@ -24,4 +25,3 @@ module.exports = {
         }
     ]
 }
-
