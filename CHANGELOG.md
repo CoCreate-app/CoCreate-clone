@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.0...v1.3.1) (2023-04-11)
+
+
+### Bug Fixes
+
+* added missing dependency @cocreate/render ([78201e9](https://github.com/CoCreate-app/CoCreate-clone/commit/78201e9fddbf22ba6842ae2e11f9853572a83c75))
+
 # [1.3.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.2.22...v1.3.0) (2023-04-11)
 
 
