@@ -13,7 +13,7 @@ module.exports = {
             "data":{
                 "name": "index.html",
                 "path": "/docs/clone/index.html",
-                "domains": [
+                "hosts": [
                     "cocreate.app",
                     "general.cocreate.app"
                 ],
