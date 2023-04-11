@@ -6,13 +6,12 @@ module.exports = {
     },
     
     "sources": [{
-            "entry": "./docs/index.html",
             "collection": "files",
-            "document_id": "60119d34ef30c40e45dde2da",
-            "key": "src",
             "data":{
+                "_id": "60119d34ef30c40e45dde2da",
                 "name": "index.html",
                 "path": "/docs/clone/index.html",
+                "src": "{{./docs/index.html}}",
                 "hosts": [
                     "cocreate.app",
                     "general.cocreate.app"
@@ -23,21 +22,6 @@ module.exports = {
                 "website_id": "5ffbceb7f11d2d00103c4535"
             }
         }
-    ],
-
-	"extract": {
-		"directory": "./src/",
-		"extensions": [
-			"js",
-			"css",
-			"html"
-		],
-		"ignores": [
-			"node_modules",
-			"vendor",
-			"bower_components",
-			"archive"
-		]
-	}
+    ]
 }
 
