@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.1...v1.4.2) (2023-04-24)
+
+
+### Bug Fixes
+
+* bump [@cocreate](https://github.com/cocreate) dependencies ([d872280](https://github.com/CoCreate-app/CoCreate-clone/commit/d872280aca2e517292e63b4ef101d2024c7ba396))
+
 ## [1.4.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.0...v1.4.1) (2023-04-24)
 
 
