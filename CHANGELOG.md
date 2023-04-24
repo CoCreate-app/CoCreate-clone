@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.3...v1.4.4) (2023-04-24)
+
+
+### Bug Fixes
+
+* updated worrkflows to v3 and node version 16 ([fed584e](https://github.com/CoCreate-app/CoCreate-clone/commit/fed584eabb153865bd02cc8aa22ff85c0c505040))
+
 ## [1.4.3](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.2...v1.4.3) (2023-04-24)
 
 
