@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.0...v1.4.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* bump cdn to 1.50.3 ([4b55a1d](https://github.com/CoCreate-app/CoCreate-clone/commit/4b55a1d97f86374712f37581c1a7bcddccc85c72))
+* removed uglifyjs-webpack-plugin ([c206d8d](https://github.com/CoCreate-app/CoCreate-clone/commit/c206d8d8add166595c32fc52ece616c4476fbd34))
+
 # [1.4.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.6...v1.4.0) (2023-04-24)
 
 
