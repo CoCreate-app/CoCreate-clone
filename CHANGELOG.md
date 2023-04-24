@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.6...v1.4.0) (2023-04-24)
+
+
+### Bug Fixes
+
+* bump cdn to 1.50.0 ([f0c99ca](https://github.com/CoCreate-app/CoCreate-clone/commit/f0c99cadfb00657c788d88c4548ff6d404dd657e))
+
+
+### Features
+
+* added pwa manifest ([fb54cd4](https://github.com/CoCreate-app/CoCreate-clone/commit/fb54cd4f614c439345445140f2eb9ed30410af18))
+
 ## [1.3.6](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.3.5...v1.3.6) (2023-04-11)
 
 
