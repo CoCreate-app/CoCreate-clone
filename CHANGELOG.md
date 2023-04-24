@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.2...v1.4.3) (2023-04-24)
+
+
+### Bug Fixes
+
+* workflow node version updated  16 ([3ee2012](https://github.com/CoCreate-app/CoCreate-clone/commit/3ee201243b7a7c190a48878da6b13072a5d32ffb))
+
 ## [1.4.2](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.1...v1.4.2) (2023-04-24)
 
 
