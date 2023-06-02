@@ -1,3 +1,11 @@
+## [1.4.12](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.11...v1.4.12) (2023-06-02)
+
+
+### Bug Fixes
+
+* format demo html ([9c18e5f](https://github.com/CoCreate-app/CoCreate-clone/commit/9c18e5f13808b0981e3b73c8173e22fc777c8f9a))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([d18c0b1](https://github.com/CoCreate-app/CoCreate-clone/commit/d18c0b12ea86c27b81279c792bb7242e6da6d8b9))
+
 ## [1.4.11](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.10...v1.4.11) (2023-05-21)
 
 
