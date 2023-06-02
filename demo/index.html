@@ -1,121 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Clone | CoCreateJS</title>
+        <!-- CoCreate Favicon -->
+        <link
+            rel="icon"
+            href="https://cdn.cocreate.app/favicon.ico"
+            type="image/ico"
+            sizes="16x16" />
 
-	<head>
-		<title>Clone | CoCreateJS</title>
-		<!-- CoCreate Favicon -->
-		<link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
+        <style>
+            .stage {
+                background-color: gray;
+                margin: 15px;
+                padding-top: 10px;
+            }
 
-		<style>
-			.stage {
-				background-color: gray;
-				margin: 15px;
-				padding-top: 10px;
-			}
+            .card {
+                background-color: beige;
+                margin: 15px;
+                min-height: 100px;
+            }
 
-			.card {
-				background-color: beige;
-				margin: 15px;
-				min-height: 100px;
+            .tasklist {
+                background-color: lightgray;
+                margin: 15px;
+            }
 
-			}
+            span {
+                display: inline-block;
+            }
+            .template {
+                display: none;
+            }
+        </style>
+        <link rel="manifest" href="/manifest.webmanifest" />
+    </head>
 
-			.tasklist {
-				background-color: lightgray;
-				margin: 15px;
+    <body>
+        <a actions="clone" clone-target=".stage[template]">New Stage</a>
+        <!--<div id="saveFetch1" -->
+        <!--  class="domEditor" -->
+        <!--  name='clonehtml7' -->
+        <!--  collection="module_activity124" -->
+        <!--  document_id="5fbd3b198b0e4d7391255615" -->
+        <!--  pass_id="me1234">-->
 
-			}
+        <div class="Sortable">
+            <div class="Sortable stage" style="padding: 15px" template>
+                <span style="color: #fff; font-size: 20px" class="noDrag"
+                    >Stage</span
+                >
+                <span style="float: right">
+                    <a actions="remove" remove-closest=".stage" class="noDrag"
+                        ><i
+                            class="height:18px fill:#505050"
+                            src="/assets/svg/times.svg"></i
+                    ></a>
+                </span>
 
-			span {
-				display: inline-block;
+                <div class="Sortable" dnd-group-name="cards">
+                    <div class="card" style="padding: 15px" template>
+                        <span class="noDrag">Card</span>
+                        <span style="float: right">
+                            <a
+                                actions="remove"
+                                remove-closest=".card"
+                                class="noDrag"
+                                ><i
+                                    class="height:18px fill:#505050"
+                                    src="/assets/svg/times.svg"></i
+                            ></a>
+                        </span>
 
-			}
-			.template {
-				display: none
-			}
-		</style>
-		<link rel="manifest" href="/manifest.webmanifest" />
-	</head>
+                        <div class="Sortable" dnd-group-name="tasklist">
+                            <div class="tasklist" template>
+                                <span class="noDrag">Tasklist</span>
+                                <span style="float: right">
+                                    <a
+                                        actions="remove"
+                                        remove-closest=".tasklist"
+                                        class="noDrag"
+                                        ><i
+                                            class="height:18px fill:#505050"
+                                            src="/assets/svg/times.svg"></i
+                                    ></a>
+                                </span>
 
-	<body>
+                                <form
+                                    collection="module_activity"
+                                    class="Sortable"
+                                    dnd-group-name="task-itemse"
+                                    id="testForm">
+                                    <div class="task-item" template>
+                                        <!-- <div style="display:inline-block;width: calc(100% - 20px);"> -->
+                                        <input
+                                            class="floating-label"
+                                            document_id=""
+                                            name="taskname"
+                                            placeholder="Task Name" />
+                                        <!-- </div> -->
+                                        <span style="float: right">
+                                            <a
+                                                actions="remove"
+                                                remove-closest=".task-item"
+                                                class="deleteBtn noDrag"
+                                                ><i
+                                                    class="height:18px fill:#505050"
+                                                    src="/assets/svg/times.svg"></i
+                                            ></a>
+                                        </span>
+                                    </div>
+                                </form>
+                                <a
+                                    actions="clone"
+                                    clone-parent=".task-item[template]"
+                                    class="noDrag"
+                                    style="display: block"
+                                    >Add Task</a
+                                >
+                            </div>
+                            <!-- Cloneable Tasklist element -->
+                        </div>
+                        <!-- Sortable Tasklist Container -->
 
-		<a actions="clone" clone-target=".stage[template]">New Stage</a>
-		<!--<div id="saveFetch1" -->
-		<!--  class="domEditor" -->
-		<!--  name='clonehtml7' -->
-		<!--  collection="module_activity124" -->
-		<!--  document_id="5fbd3b198b0e4d7391255615" -->
-		<!--  pass_id="me1234">-->
+                        <a
+                            actions="clone"
+                            clone-parent=".tasklist[template]"
+                            class="noDrag"
+                            style="display: block"
+                            clone-data="tasklist-name"
+                            >New Tasklist</a
+                        >
+                    </div>
+                    <!-- Cloneable Card element -->
+                </div>
+                <!-- Sortable Card Container -->
 
-		<div class="Sortable">
+                <a
+                    actions="clone"
+                    clone-previous=".card[template]"
+                    class="noDrag"
+                    >New Card</a
+                >
+                <input id="card-name" />
+            </div>
+            <!-- sortable and clonable stage -->
+        </div>
+        <!-- sortable project -->
 
-			<div class="Sortable stage" style="padding:15px" template>
-				<span style="color:#fff; font-size:20px" class="noDrag">Stage</span>
-				<span style="float:right;">
-					<a actions="remove" remove-closest=".stage" class="noDrag"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a>
-				</span>
+        <!--</div> -->
 
-				<div class="Sortable" dnd-group-name="cards">
+        <script>
+            var config = {
+                key: "2061acef-0451-4545-f754-60cf8160",
+                organization_Id: "5de0387b12e200ea63204d6c",
+                host: "ws.cocreate.app",
+            };
+        </script>
 
-					<div class="card" style="padding:15px" template>
-						<span class="noDrag">Card</span>
-						<span style="float:right;">
-							<a actions="remove" remove-closest=".card" class="noDrag"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a>
-						</span>
-
-						<div class="Sortable" dnd-group-name="tasklist">
-							<div class="tasklist" template>
-								<span class="noDrag">Tasklist</span>
-								<span style="float:right;">
-									<a actions="remove" remove-closest=".tasklist" class="noDrag"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a>
-								</span>
-
-								<form collection="module_activity" class="Sortable" dnd-group-name="task-itemse" id="testForm">
-									<div class="task-item" template>
-										<!-- <div style="display:inline-block;width: calc(100% - 20px);"> -->
-										<input class="floating-label" document_id="" name="taskname" placeholder="Task Name">
-									<!-- </div> -->
-										<span style="float:right;">
-											<a actions="remove" remove-closest=".task-item" class="deleteBtn noDrag"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a>
-										</span>
-									</div>
-								</form>
-								<a actions="clone" clone-parent=".task-item[template]" class="noDrag" style="display: block">Add Task</a>
-							</div>
-							<!-- Cloneable Tasklist element -->
-						</div>
-						<!-- Sortable Tasklist Container -->
-
-						<a actions="clone" clone-parent=".tasklist[template]"  class="noDrag" style="display: block" clone-data="tasklist-name">New Tasklist</a>
-
-
-					</div>
-					<!-- Cloneable Card element -->
-				</div>
-				<!-- Sortable Card Container -->
-
-				<a actions="clone" clone-previous=".card[template]" class="noDrag">New Card</a>
-				<input id="card-name">
-
-			</div>
-			<!-- sortable and clonable stage -->
-
-		</div>
-		<!-- sortable project -->
-
-		<!--</div> -->
-
-		<script>
-			var config = {
-				key: '2061acef-0451-4545-f754-60cf8160',
-				organization_Id: '5de0387b12e200ea63204d6c',
-				host: 'ws.cocreate.app'
-			}
-		</script>
-
-		<!-- <script src="../dist/CoCreate-clone.js"></script> -->
-		<script src="https://cdn.cocreate.app/1.50.6/CoCreate.min.js"></script>
-
-	</body>
-
+        <!-- <script src="../dist/CoCreate-clone.js"></script> -->
+        <script src="https://cdn.cocreate.app/1.50.6/CoCreate.min.js"></script>
+    </body>
 </html>
