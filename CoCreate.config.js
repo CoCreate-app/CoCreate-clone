@@ -10,7 +10,7 @@ module.exports = {
                 "name": "index.html",
                 "path": "/docs/clone/index.html",
                 "src": "{{./docs/index.html}}",
-                "hosts": [
+                "host": [
                     "cocreate.app",
                     "general.cocreate.app"
                 ],
