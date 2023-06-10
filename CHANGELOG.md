@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.15...v1.4.16) (2023-06-10)
+
+
+### Bug Fixes
+
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([6b4ed96](https://github.com/CoCreate-app/CoCreate-clone/commit/6b4ed9629bb14847bcf3b48b8f3f1743c2e9b228))
+
 ## [1.4.15](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.14...v1.4.15) (2023-06-04)
 
 
