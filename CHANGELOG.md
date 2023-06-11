@@ -1,3 +1,10 @@
+## [1.4.20](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.19...v1.4.20) (2023-06-11)
+
+
+### Bug Fixes
+
+* @cocreate/cli moved to dependencies ([b29ccd0](https://github.com/CoCreate-app/CoCreate-clone/commit/b29ccd045a84739af6d0fbc78276ad2f9a9b2e9a))
+
 ## [1.4.19](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.18...v1.4.19) (2023-06-11)
 
 
