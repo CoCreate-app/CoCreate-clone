@@ -1,3 +1,10 @@
+## [1.4.21](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.20...v1.4.21) (2023-06-11)
+
+
+### Bug Fixes
+
+* postintall error ([17308f4](https://github.com/CoCreate-app/CoCreate-clone/commit/17308f4dbbb68bfa3a45949d0f82d4e01d212b9c))
+
 ## [1.4.20](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.19...v1.4.20) (2023-06-11)
 
 
