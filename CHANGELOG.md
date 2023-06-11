@@ -1,3 +1,10 @@
+## [1.4.23](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.22...v1.4.23) (2023-06-11)
+
+
+### Bug Fixes
+
+* testing workflow ([6c73fa0](https://github.com/CoCreate-app/CoCreate-clone/commit/6c73fa0b87d9f509fb8f7ce151311a3f56055ba5))
+
 ## [1.4.22](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.21...v1.4.22) (2023-06-11)
 
 
