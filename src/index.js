@@ -32,7 +32,7 @@ const CoCreateClone = {
     },
 
     cloneElement: function (cloneBtn) {
-        const cloneTarget = cloneBtn.getAttribute('clone-target');
+        const cloneTarget = cloneBtn.getAttribute('clone-selector');
         const cloneClosest = cloneBtn.getAttribute('clone-closest');
         const cloneParent = cloneBtn.getAttribute('clone-parent');
         const cloneNext = cloneBtn.getAttribute('clone-next');
