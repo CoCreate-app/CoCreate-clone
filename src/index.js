@@ -1,7 +1,7 @@
 import action from '@cocreate/actions';
 import render from '@cocreate/render';
 import uuid from '@cocreate/uuid';
-import { cssPath } from '@cocreate/utils';
+import { cssPath, queryElements } from '@cocreate/utils';
 
 const CoCreateClone = {
     init: function () {
@@ -32,24 +32,10 @@ const CoCreateClone = {
     },
 
     cloneElement: function (cloneBtn) {
-        const cloneTarget = cloneBtn.getAttribute('clone-selector');
-        const cloneClosest = cloneBtn.getAttribute('clone-closest');
-        const cloneParent = cloneBtn.getAttribute('clone-parent');
-        const cloneNext = cloneBtn.getAttribute('clone-next');
-        const clonePrevious = cloneBtn.getAttribute('clone-previous');
-        const clonePosition = cloneBtn.getAttribute('clone-position') || 'before';
+        let template = queryElements({ element: cloneBtn, prefix: 'clone' })
 
-        let template;
-        if (cloneTarget)
-            template = document.querySelector(cloneTarget)
-        else if (cloneClosest)
-            template = cloneBtn.closest(cloneClosest)
-        else if (cloneParent)
-            template = cloneBtn.parentElement.querySelector(cloneParent)
-        else if (cloneNext)
-            template = cloneBtn.nextElementSibling.querySelector(cloneNext)
-        else if (clonePrevious)
-            template = cloneBtn.previousElementSibling.querySelector(clonePrevious)
+        // TODO: support array?
+        template = template[0]
         if (!template)
             return;
 
@@ -75,7 +61,7 @@ const CoCreateClone = {
         // tags.forEach((tag) => {
         // 	tag.removeAttribute('pass-value_id');
         // })
-
+        const clonePosition = cloneBtn.getAttribute('clone-position') || 'before';
         if (clonePosition === "after") {
             if (template.nextSibling) {
                 template.parentNode.insertBefore(clonedItem, template.nextSibling);
