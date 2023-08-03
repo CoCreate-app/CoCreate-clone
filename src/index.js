@@ -85,12 +85,12 @@ const CoCreateClone = {
 
 
     __sendMessageOfClone: function (parent, item, id, position) {
-        const document_id = parent.getAttribute('document_id') || "";
+        const object = parent.getAttribute('object') || "";
         const name = parent.getAttribute('name') || "";
 
         let addtionSelector = ""
-        if (document_id) {
-            addtionSelector = `[document_id='${document_id}']`;
+        if (object) {
+            addtionSelector = `[object='${object}']`;
         } else {
             return;
         }
