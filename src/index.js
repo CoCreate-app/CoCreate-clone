@@ -86,7 +86,7 @@ const CoCreateClone = {
 
     __sendMessageOfClone: function (parent, item, id, position) {
         const object = parent.getAttribute('object') || "";
-        const name = parent.getAttribute('name') || "";
+        const key = parent.getAttribute('key') || "";
 
         let addtionSelector = ""
         if (object) {
@@ -95,8 +95,8 @@ const CoCreateClone = {
             return;
         }
 
-        if (name) {
-            addtionSelector += `[name='${name}']`;
+        if (key) {
+            addtionSelector += `[key='${key}']`;
         }
 
         CoCreate.message.send({
