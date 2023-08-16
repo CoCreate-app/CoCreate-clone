@@ -1,3 +1,19 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.29...v1.5.0) (2023-08-16)
+
+
+### Bug Fixes
+
+* crud attributes renamed ([79ff60e](https://github.com/CoCreate-app/CoCreate-clone/commit/79ff60e5f778cff2bcb7a347de46c654e2a8b915))
+* replace -target -selector ([fa754bf](https://github.com/CoCreate-app/CoCreate-clone/commit/fa754bf994ae8ff1190c5b246019d3bcce571741))
+* updated actions callback data object ([bc9668a](https://github.com/CoCreate-app/CoCreate-clone/commit/bc9668a813af0514c0a2a1d4fe5e88df445ead61))
+* webpack.config and package.json make use of mode=production instead of process.env ([3b10d76](https://github.com/CoCreate-app/CoCreate-clone/commit/3b10d7682cbf33b528fb76893f6b3d9e4730b453))
+
+
+### Features
+
+* name attribute and variable renamed to key ([43aa925](https://github.com/CoCreate-app/CoCreate-clone/commit/43aa925d2c694add3583cb6599bfe8b815b27513))
+* Refactor cloning logic and add support for queryElements function ([422b428](https://github.com/CoCreate-app/CoCreate-clone/commit/422b428ca7ac7b5d4a87c6674917b70ecadef370))
+
 ## [1.4.29](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.4.28...v1.4.29) (2023-06-14)
 
 
