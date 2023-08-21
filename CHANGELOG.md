@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.0...v1.7.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* bump dependencies ([5e74e93](https://github.com/CoCreate-app/CoCreate-clone/commit/5e74e932591b0b75c16ca3828a0f4ab52a96fe3c))
+
 # [1.7.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.6.1...v1.7.0) (2023-08-21)
 
 
