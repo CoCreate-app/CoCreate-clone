@@ -1,3 +1,11 @@
+## [1.7.2](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.1...v1.7.2) (2023-09-18)
+
+
+### Bug Fixes
+
+*  Add path and pathname ([6ba6522](https://github.com/CoCreate-app/CoCreate-clone/commit/6ba6522252cad4380ad50359ef25cafbb04771aa))
+* Update CoCreate depndencies to latest versions ([7a0a8d0](https://github.com/CoCreate-app/CoCreate-clone/commit/7a0a8d000bb1d29a89e23029608f7eb3407791ec))
+
 ## [1.7.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.0...v1.7.1) (2023-08-21)
 
 
