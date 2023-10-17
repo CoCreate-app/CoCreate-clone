@@ -1,5 +1,5 @@
 import action from '@cocreate/actions';
-import render from '@cocreate/render';
+import { render } from '@cocreate/render';
 import uuid from '@cocreate/uuid';
 import { cssPath, queryElements } from '@cocreate/utils';
 
@@ -49,7 +49,7 @@ const CoCreateClone = {
         if (cloneData) {
             cloneData = JSON.parse(cloneData)
             console.log('cloneData', cloneData)
-            render.data({
+            render({
                 elements: [clonedItem],
                 data: cloneData,
             });
