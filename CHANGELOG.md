@@ -1,3 +1,10 @@
+## [1.7.7](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.6...v1.7.7) (2023-10-19)
+
+
+### Bug Fixes
+
+* declartion of render functions using object spread ([2b62267](https://github.com/CoCreate-app/CoCreate-clone/commit/2b6226762f8248ada1c8ddd762325f8bbdf299e5))
+
 ## [1.7.6](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.5...v1.7.6) (2023-10-14)
 
 
