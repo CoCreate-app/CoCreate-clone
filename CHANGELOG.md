@@ -1,3 +1,11 @@
+## [1.7.9](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.8...v1.7.9) (2023-11-03)
+
+
+### Bug Fixes
+
+* favicon.ico path ([6019be1](https://github.com/CoCreate-app/CoCreate-clone/commit/6019be15d4e25cde5c79c2b5acba15ec0fbcf658))
+* update dependencies to the lates versions ([0ceb618](https://github.com/CoCreate-app/CoCreate-clone/commit/0ceb618cbd517094b488d1a36cc67c5968bbdb1d))
+
 ## [1.7.8](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.7...v1.7.8) (2023-10-25)
 
 
