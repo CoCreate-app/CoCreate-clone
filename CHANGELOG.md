@@ -1,3 +1,10 @@
+## [1.7.10](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.9...v1.7.10) (2023-11-09)
+
+
+### Bug Fixes
+
+* meta name typo ([447b30f](https://github.com/CoCreate-app/CoCreate-clone/commit/447b30f7bbf8e7b295084a823f8003a93ca4aebf))
+
 ## [1.7.9](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.8...v1.7.9) (2023-11-03)
 
 
