@@ -54,12 +54,12 @@ const CoCreateClone = {
                 data: cloneData,
             });
         }
-        //// remove pass-value_id from clonedItem
-        // clonedItem.removeAttribute('pass-value_id');
+        //// remove state-value_id from clonedItem
+        // clonedItem.removeAttribute('state-value_id');
         // let tags = clonedItem.querySelectorAll("*");
 
         // tags.forEach((tag) => {
-        // 	tag.removeAttribute('pass-value_id');
+        // 	tag.removeAttribute('state-value_id');
         // })
         const clonePosition = cloneBtn.getAttribute('clone-position') || 'before';
         if (clonePosition === "after") {
