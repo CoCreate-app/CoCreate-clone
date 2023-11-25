@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.8.0...v1.9.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* pass attributes renamed to state ([4820c07](https://github.com/CoCreate-app/CoCreate-clone/commit/4820c07a3982b7dcfdd8aacac4392882302bb05a))
+* update nav, edit button and css path ([afb2dde](https://github.com/CoCreate-app/CoCreate-clone/commit/afb2ddea93b83cdf3dac2c4208b7ef567c3917f1))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([5e26119](https://github.com/CoCreate-app/CoCreate-clone/commit/5e2611901b9a63f0eddbc434adc294db10a88410))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.7.11...v1.8.0) (2023-11-19)
 
 
