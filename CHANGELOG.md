@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.10.3...v1.10.4) (2024-09-21)
+
+
+### Bug Fixes
+
+* clone-data="" attribute requires valid json ([2a7d32c](https://github.com/CoCreate-app/CoCreate-clone/commit/2a7d32c8028064c4f469c4921c7d26a6f3cd3283))
+
 ## [1.10.3](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.10.2...v1.10.3) (2024-06-12)
 
 
