@@ -99,10 +99,10 @@ const CoCreateClone = {
             addtionSelector += `[key='${key}']`;
         }
 
-        CoCreate.message.send({
+        CoCreate.socket.send({
             rooms: [],
             emit: {
-                message: 'CoCreateClone-insert',
+                method: 'CoCreateClone-insert',
                 data: {
                     selector: `div.domEditor${addtionSelector} #${id}.template`,
                     element_str: item.outerHTML,
