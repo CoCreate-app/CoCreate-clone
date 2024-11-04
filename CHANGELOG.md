@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.10.4...v1.11.0) (2024-11-04)
+
+
+### Bug Fixes
+
+* message rplaced by socket and method ([9c23ac1](https://github.com/CoCreate-app/CoCreate-clone/commit/9c23ac11f7e950e39f72ada3331a104f3980b95a))
+* pretier.config.js and file formating ([97c06ea](https://github.com/CoCreate-app/CoCreate-clone/commit/97c06eae0c4e4ff55013b7ef920f42a9828a45d0))
+
+
+### Features
+
+* add prettier.config.js and format files ([aba17c3](https://github.com/CoCreate-app/CoCreate-clone/commit/aba17c3b987b22857e63fdb688944393393a2c19))
+
 ## [1.10.4](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.10.3...v1.10.4) (2024-09-21)
 
 
