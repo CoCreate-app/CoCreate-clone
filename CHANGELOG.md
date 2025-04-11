@@ -1,3 +1,11 @@
+## [1.11.1](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.11.0...v1.11.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* dispatch end event on action element rather than document ([70ed42f](https://github.com/CoCreate-app/CoCreate-clone/commit/70ed42f956c31c7683daaeb86236b8e21da780df))
+* update selector operators ([14ff9f3](https://github.com/CoCreate-app/CoCreate-clone/commit/14ff9f3c77aa90f536d7944f73c81e1ebbc7ff35))
+
 # [1.11.0](https://github.com/CoCreate-app/CoCreate-clone/compare/v1.10.4...v1.11.0) (2024-11-04)
 
 
