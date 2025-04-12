@@ -38,7 +38,7 @@
 	</head>
 
 	<body>
-		<a actions="clone" clone-selector="$next .stage[template]">New Stage</a>
+		<a actions="clone" clone-query="$next .stage[template]">New Stage</a>
 		<!--<div id="saveFetch1" -->
 		<!--  class="domEditor" -->
 		<!--  key='clonehtml7' -->
@@ -52,7 +52,10 @@
 					>Stage</span
 				>
 				<span style="float: right">
-					<a actions="remove" remove-closest=".stage" class="noDrag"
+					<a
+						actions="remove"
+						remove-query="$closest .stage"
+						class="noDrag"
 						><i class="height:18px" src="/assets/svg/times.svg"></i
 					></a>
 				</span>
@@ -63,7 +66,7 @@
 						<span style="float: right">
 							<a
 								actions="remove"
-								remove-closest=".card"
+								remove-query="$closest .card"
 								class="noDrag"
 								><i
 									class="height:18px"
@@ -77,7 +80,7 @@
 								<span style="float: right">
 									<a
 										actions="remove"
-										remove-closest=".tasklist"
+										remove-query="$closest .tasklist"
 										class="noDrag"
 										><i
 											class="height:18px"
@@ -101,7 +104,7 @@
 										<span style="float: right">
 											<a
 												actions="remove"
-												remove-closest=".task-item"
+												remove-query="$closest .task-item"
 												class="deleteBtn noDrag"
 												><i
 													class="height:18px"
@@ -112,7 +115,7 @@
 								</form>
 								<a
 									actions="clone"
-									clone-parent=".task-item[template]"
+									clone-query="$parent .task-item[template]"
 									class="noDrag"
 									style="display: block"
 									>Add Task</a
@@ -124,7 +127,7 @@
 
 						<a
 							actions="clone"
-							clone-parent=".tasklist[template]"
+							clone-query="$parent .tasklist[template]"
 							class="noDrag"
 							style="display: block"
 							clone-data="{}"
@@ -137,7 +140,7 @@
 
 				<a
 					actions="clone"
-					clone-previous=".card[template]"
+					clone-query="$previous .card[template]"
 					class="noDrag"
 					>New Card</a
 				>
